@@ -1,0 +1,7 @@
+{
+  "name": "altosdelbosque",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

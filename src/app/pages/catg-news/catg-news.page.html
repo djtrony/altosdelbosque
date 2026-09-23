@@ -1,0 +1,100 @@
+<ion-header class="ion-no-border navbar-custom">
+  <ion-toolbar class="toolbar-content">
+    <div class="brand-container" slot="start">
+      <div class="logo-box">
+        <ion-icon name="business-outline"></ion-icon>
+      </div>
+      <div class="brand-text">
+        <h2>Altos del Bosque</h2>
+        <p>CONJUNTO RESIDENCIAL</p>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Inicio</a>
+      <a routerLink="/catg-news" routerLinkActive="active">Avisos</a>
+      <a routerLink="/guardados" routerLinkActive="active">Guardados</a>
+      <a routerLink="/add-news" routerLinkActive="active">Publicar</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </div>
+
+    <div slot="end" class="header-badges">
+      <span class="status-badge">
+        <span class="dot"></span> Portería 24/7 Activa
+      </span>
+      <div class="user-chip">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Torre 2 - Apto 501</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <div class="page-container">
+    
+    <!-- HEADER DE SECCIÓN -->
+    <header class="section-header">
+      <div>
+        <span class="category-tag">CARTELERA DIGITAL</span>
+        <h1>Avisos y Comunicados</h1>
+        <p>Entérate de las novedades, citaciones, circulares oficiales y trabajos programados en la copropiedad.</p>
+      </div>
+    </header>
+
+    <!-- BARRA DE BÚSQUEDA Y FILTROS -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" [(ngModel)]="textoBusqueda" placeholder="Buscar por título o palabra clave..." />
+      </div>
+
+      <div class="categories-chips">
+        <button 
+          *ngFor="let cat of categorias" 
+          [class.active]="categoriaSeleccionada === cat"
+          (click)="categoriaSeleccionada = cat">
+          {{ cat }}
+        </button>
+      </div>
+    </div>
+
+    <!-- GRID DE NOTICIAS -->
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let catgNews of catgNewsFiltrados">
+          <div class="news-card">
+            <div class="card-image">
+              <img [src]="catgNews.imagen" [alt]="catgNews.titulo" />
+              <span class="badge-cat" [ngClass]="catgNews.categoria.toLowerCase()">{{ catgNews.categoria }}</span>
+              <span *ngIf="catgNews.prioridad === 'Alta'" class="badge-priority">Urgente</span>
+            </div>
+
+            <div class="card-body">
+              <div class="meta-info">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>{{ catgNews.fecha }}</span>
+              </div>
+
+              <h3>{{ catgNews.titulo }}</h3>
+              <p>{{ catgNews.resumen }}</p>
+
+              <div class="card-footer">
+                <a [routerLink]="['/avisos', catgNews.id]" class="read-more">Leer comunicado &rarr;</a>
+                <button class="bookmark-btn" (click)="toggleGuardar(catgNews)">
+                  <ion-icon [name]="catgNews.guardado ? 'bookmark' : 'bookmark-outline'" [class.active]="catgNews.guardado"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- MENSAJE SI NO HAY RESULTADOS -->
+      <div class="no-results" *ngIf="catgNewsFiltrados.length === 0">
+        <p>No se encontraron avisos que coincidan con la búsqueda.</p>
+      </div>
+    </ion-grid>
+
+  </div>
+</ion-content>

@@ -1,20 +1,366 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border navbar-custom" >
+
+  <ion-toolbar class="toolbar-content">
+    <div class="brand-container" slot="start">
+      <div class="logo-box">
+        <ion-icon name="business-outline"></ion-icon>
+      </div>
+
+      <div class="brand-text">
+        <h2>Altos del Bosque</h2>
+        <p>CONJUNTO RESIDENCIAL</p>
+      </div>
+    </div>
+
+    <!-- Barra de navegacion -->
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Inicio</a>
+      <a routerLink="/catg-news" routerLinkActive="active">Avisos</a>
+      <a routerLink="/guardados" routerLinkActive="active">Guardados</a>
+      <a routerLink="/add-news" routerLinkActive="active">Publicar</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </div>
+
+    <!-- Badges / Usuario -->
+    <div slot="end" class="header-badges">
+      <span class="status-badge">
+        <span class="dot"></span> Portería 24/7 Activa
+      </span>
+      <div class="user-chip">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Torre 2 - Apto 501</span>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="main-content">
+  <!-- HERO SECTION -->
+  <section class="hero-card">
+    <div class="hero-overlay">
+      <span class="portal-tag">PORTAL OFICIAL DE COPROPIETARIOS</span>
+      <h1>Bienvenido a Altos del Bosque</h1>
+      <p>Mantente informado al instante sobre comunicados oficiales, mantenimientos, eventos comunitarios y novedades de nuestra copropiedad.</p>
+      
+      <div class="hero-buttons">
+        <ion-button fill="solid" color="success" class="btn-primary">
+          <ion-icon name="notifications-outline" slot="start"></ion-icon>
+          Ver avisos
+        </ion-button>
+        <ion-button fill="outline" color="light" class="btn-secondary">
+          <ion-icon name="headset-outline" slot="start"></ion-icon>
+          Contactar administración
+        </ion-button>
+      </div>
+    </div>
+  </section>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- SECCIÓN MÉTIRICAS / DATOS RÁPIDOS -->
+  <div class="stats-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="6" size-md="3">
+          <div class="stat-card">
+            <div class="icon-wrapper green">
+              <ion-icon name="notifications-outline"></ion-icon>
+            </div>
+            <div class="stat-info">
+              <h3>18</h3>
+              <p>Avisos publicados este mes</p>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-sm="6" size-md="3">
+          <div class="stat-card">
+            <div class="icon-wrapper orange">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="stat-info">
+              <h3>28 Octubre</h3>
+              <p>Próxima asamblea ordinaria</p>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-sm="6" size-md="3">
+          <div class="stat-card">
+            <div class="icon-wrapper green-light">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <div class="stat-info">
+              <h3>100% Operativas</h3>
+              <p>Estado de zonas comunes</p>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-sm="6" size-md="3">
+          <div class="stat-card">
+            <div class="icon-wrapper gray">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+            <div class="stat-info">
+              <h3>Ext. 101 / 24h</h3>
+              <p>Línea de portería 24/7</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-</ion-content>
+
+
+
+<!-- FIN SECCION SUPERIOR -->
+
+<!-- SECCION AVISOS (ULTIMOS 6) -->
+
+
+
+  <!-- AVISOS DESTACADOS -->
+  <section class="section-container">
+    <div class="section-header">
+      <div>
+        <span class="sub-caption">ACTUALIZACIONES RECIENTES</span>
+        <h2>Avisos destacados</h2>
+        <p>Las novedades más importantes para tener en cuenta esta semana en el conjunto residencial.</p>
+      </div>
+      <a href="#" class="link-more">Ver cartelera completa &rarr;</a>
+    </div>
+
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <!-- Tarjeta 1 -->
+        <ion-col size="12" size-md="4">
+          <div class="notice-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600" alt="Mantenimiento" />
+              <span class="tag orange">Mantenimiento</span>
+            </div>
+            <div class="card-body">
+              <span class="date">18 de octubre de 2026</span>
+              <h3>Lavado preventivo de tanques de reserva</h3>
+              <p>Se realizará lavado preventivo de tanques de reserva de agua potable en las Torres 1 y 2. Recomendamos almacenar agua.</p>
+              <div class="card-footer">
+                <a href="#">Ver más &rarr;</a>
+                <ion-icon name="bookmark-outline" class="bookmark-btn"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <!-- Tarjeta 2 -->
+        <ion-col size="12" size-md="4">
+          <div class="notice-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=600" alt="Administración" />
+              <span class="tag blue">Administración</span>
+            </div>
+            <div class="card-body">
+              <span class="date">18 de octubre de 2026</span>
+              <h3>Convocatoria a reunión de copropietarios</h3>
+              <p>Convocatoria a reunión de copropietarios y asamblea ordinaria de fin de año para presentación del balance contable.</p>
+              <div class="card-footer">
+                <a href="#">Ver más &rarr;</a>
+                <ion-icon name="bookmark-outline" class="bookmark-btn"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <!-- Tarjeta 3 -->
+        <ion-col size="12" size-md="4">
+          <div class="notice-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=600" alt="Zonas Comunes" />
+              <span class="tag green">Zonas Comunes</span>
+            </div>
+            <div class="card-body">
+              <span class="date">18 de octubre de 2026</span>
+              <h3>Reserva previa para el salón social</h3>
+              <p>Reserva previa obligatoria para el salón social y la zona de barbacoa mediante nuestro sistema digital para garantizar disponibilidad.</p>
+              <div class="card-footer">
+                <a href="#">Ver más &rarr;</a>
+                <ion-icon name="bookmark-outline" class="bookmark-btn"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+
+  <!-- GUÍA RÁPIDA -->
+
+  <section class="section-container guide-section">
+    <div class="center-header">
+      <span class="sub-caption">GUÍA RÁPIDA</span>
+      <h2>¿Cómo funciona el portal?</h2>
+      <p>Un espacio digital centralizado diseñado para simplificar la vida en comunidad y agilizar la comunicación con la administración.</p>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <div class="guide-card">
+            <div class="step-icon">
+              <ion-icon name="document-text-outline"></ion-icon>
+            </div>
+            <span class="step-label">PASO 01</span>
+            <h3>Consulta los avisos</h3>
+            <p>Mantente al día con notificaciones oficiales, circulares, estados de cuenta y novedades en tiempo real directamente desde cualquier dispositivo.</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="4">
+          <div class="guide-card">
+            <div class="step-icon">
+              <ion-icon name="bookmark-outline"></ion-icon>
+            </div>
+            <span class="step-label">PASO 02</span>
+            <h3>Guarda los que te interesan</h3>
+            <p>Almacena comunicados clave en tu lista personal de guardados para consultarlos rápidamente, revisarlos sin conexión o recordarlos fácilmente.</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="4">
+          <div class="guide-card">
+            <div class="step-icon">
+              <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+            </div>
+            <span class="step-label">PASO 03</span>
+            <h3>Escribe a la administración</h3>
+            <p>Radica PQRS, solicitudes de mantenimiento o permisos de mudanza con número de radicado y trazabilidad oportuna hasta su resolución.</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+
+
+  <!-- TESTIMONIOS -->
+  <section class="section-container testimonials-section">
+    <div class="testimonials-header">
+      <div>
+        <span class="sub-caption">COMUNIDAD ACTIVA</span>
+        <h2>Lo que dicen nuestros copropietarios</h2>
+        <p>Experiencias reales de vecinos que utilizan diariamente la plataforma comunitaria.</p>
+      </div>
+      <div class="rating-badge">
+        ★★★★★ <span>4.9 / 5 Satisfacción vecinal</span>
+      </div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p>"La agilidad para enterarnos de las novedades ha cambiado por completo la dinámica. Ahora sabemos exactamente cuándo podan los jardines y cómo mantener en orden nuestras zonas verdes comunes."</p>
+            <div class="author-info">
+              <img src="https://i.pravatar.cc/100?img=32" alt="Carolina Restrepo" />
+              <div>
+                <h4>Carolina Restrepo</h4>
+                <span>Torre 2 - Apto 504</span>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="4">
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p>"El aviso previo del corte programado de agua nos llegó con 48 horas de anticipación al correo y al celular. Nos permitió prepararnos en familia sin ningún tipo de traumatismo ni carreras."</p>
+            <div class="author-info">
+              <img src="https://i.pravatar.cc/100?img=12" alt="Andrés Felipe Gómez" />
+              <div>
+                <h4>Andrés Felipe Gómez</h4>
+                <span>Torre 5 - Apto 302</span>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="4">
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p>"Tenía una inquietud sobre la cuota extraordinaria y radiqué la consulta directamente desde mi apartamento. En menos de 24 horas la administradora me respondió con todo el detalle contable."</p>
+            <div class="author-info">
+              <img src="https://i.pravatar.cc/100?img=47" alt="Gloria Patricia Salazar" />
+              <div>
+                <h4>Gloria Patricia Salazar</h4>
+                <span>Torre 1 - Apto 801</span>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+  <!-- BANNER CTA -->
+  <section class="section-container">
+    <div class="cta-banner">
+      <div class="cta-content">
+        <span class="badge-light">Atención al Residente</span>
+        <h2>¿Tienes una novedad para reportar a la administración?</h2>
+        <p>Utiliza el canal oficial de convivencia y mantenimiento para registrar reparaciones locativas, solicitar paz y salvos o agendar citas con el consejo.</p>
+      </div>
+      <ion-button fill="solid" color="light" class="btn-cta">
+        <ion-icon name="send-outline" slot="start"></ion-icon>
+        Escribir a la administración
+      </ion-button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-custom">
+
+    <ion-grid >
+      <ion-row   background="blue" class="ion-padding">
+        <ion-col size="12" size-md="3">
+          <div class="footer-brand">
+            <h3>Altos del Bosque</h3>
+            <p>Conjunto Residencial P.H.</p>
+            <small>NIT: 900.542.819-3</small>
+            <small>Calle 145 #12-48, Bogotá D.C., Colombia</small>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="3">
+          <div class="footer-col">
+            <h4>Canales de Atención</h4>
+            <p><ion-icon name="call-outline"></ion-icon> PBX: (+57) 601745 8920</p>
+            <p><ion-icon name="phone-portrait-outline"></ion-icon> Celular: (+57) 310 987 6543</p>
+            <p><ion-icon name="mail-outline"></ion-icon> administracion&#64;altosdelbosque.com.co</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="3">
+          <div class="footer-col">
+            <h4>Horario Administrativo</h4>
+            <p><strong>Lunes a Viernes:</strong><br>8:00 a.m. - 5:00 p.m.</p>
+            <p><strong>Sábados:</strong><br>9:00 a.m. - 1:00 p.m.</p>
+            <p><small>Vigilancia y Portería: 24 Horas / 7 Días</small></p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="3">
+          <div class="footer-col">
+            <h4>Enlaces de Interés</h4>
+            <ul>
+              <li><a href="#">Manual de Convivencia</a></li>
+              <li><a href="#">Reglamento de Propiedad Horizontal</a></li>
+              <li><a href="#">Reserva de Áreas Comunes</a></li>
+              <li><a href="#">Peticiones, Quejas y Reclamos (PQRS)</a></li>
+            </ul>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </footer>
+
+  </ion-content>

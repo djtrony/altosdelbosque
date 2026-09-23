@@ -1,0 +1,113 @@
+<ion-header class="ion-no-border navbar-custom">
+  <ion-toolbar class="toolbar-content">
+    <div class="brand-container" slot="start">
+      <div class="logo-box">
+        <ion-icon name="business-outline"></ion-icon>
+      </div>
+      <div class="brand-text">
+        <h2>Altos del Bosque</h2>
+        <p>CONJUNTO RESIDENCIAL</p>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Inicio</a>
+      <a routerLink="/catg-news" routerLinkActive="active">Avisos</a>
+      <a routerLink="/guardados" routerLinkActive="active">Guardados</a>
+      <a routerLink="/add-news" routerLinkActive="active">Publicar</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </div>
+
+    <div slot="end" class="header-badges">
+      <span class="status-badge">
+        <span class="dot"></span> Portería 24/7 Activa
+      </span>
+      <div class="user-chip">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Torre 2 - Apto 501</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <div class="page-container">
+    
+    <!-- BOTÓN REGRESAR -->
+    <div class="back-navigation">
+      <a routerLink="/catg-news" class="back-btn">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Volver a la cartelera de avisos
+      </a>
+    </div>
+
+    <!-- TARJETA PRINCIPAL DEL COMUNICADO -->
+    <article class="article-card">
+      
+      <!-- HEADER DEL AVISO -->
+      <header class="article-header">
+        <div class="tags-bar">
+          <span class="badge-cat orange">{{ aviso.categoria }}</span>
+          <span *ngIf="aviso.prioridad === 'Alta'" class="badge-priority">Urgente / Comunicado Oficial</span>
+        </div>
+
+        <h1>{{ aviso.titulo }}</h1>
+
+        <div class="meta-bar">
+          <div class="author-info">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <span>Emitido por: <strong>{{ aviso.autor }}</strong></span>
+          </div>
+          <div class="date-info">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>{{ aviso.fecha }}</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- IMAGEN DESTACADA -->
+      <div class="hero-image">
+        <img [src]="aviso.imagen" [alt]="aviso.titulo" />
+      </div>
+
+      <!-- CONTENIDO DEL COMUNICADO -->
+      <div class="article-body" [innerHTML]="aviso.contenidoHtml"></div>
+
+      <!-- SECCIÓN DE ARCHIVOS ADJUNTOS -->
+      <div class="attachments-section" *ngIf="aviso.adjuntos.length > 0">
+        <h3>
+          <ion-icon name="document-attach-outline"></ion-icon>
+          Documentos y Anexos Oficiales
+        </h3>
+        
+        <div class="files-grid">
+          <div class="file-card" *ngFor="let doc of aviso.adjuntos">
+            <div class="file-icon">
+              <ion-icon name="document-text-outline"></ion-icon>
+            </div>
+            <div class="file-info">
+              <strong>{{ doc.nombre }}</strong>
+              <small>{{ doc.tamano }} • Archivo PDF</small>
+            </div>
+            <button class="download-btn">Descargar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCIONES INFERIORES -->
+      <footer class="article-footer">
+        <button class="action-btn" (click)="toggleGuardar()">
+          <ion-icon [name]="avisoGuardado ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          {{ avisoGuardado ? 'Guardado en mis notas' : 'Guardar en Favoritos' }}
+        </button>
+
+        <button class="action-btn secondary">
+          <ion-icon name="share-social-outline"></ion-icon>
+          Compartir con vecinos
+        </button>
+      </footer>
+
+    </article>
+
+  </div>
+</ion-content>

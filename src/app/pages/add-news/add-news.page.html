@@ -1,0 +1,162 @@
+<ion-header class="ion-no-border navbar-custom">
+  <ion-toolbar class="toolbar-content">
+    <div class="brand-container" slot="start">
+      <div class="logo-box">
+        <ion-icon name="business-outline"></ion-icon>
+      </div>
+      <div class="brand-text">
+        <h2>Altos del Bosque</h2>
+        <p>CONJUNTO RESIDENCIAL</p>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/home">Inicio</a>
+      <a routerLink="/catg-news">Avisos</a>
+      <a routerLink="/guardados">Guardados</a>
+      <a routerLink="/add-news" class="active">Publicar</a>
+      <a routerLink="/contacto">Contacto</a>
+    </div>
+
+    <div slot="end" class="header-badges">
+      <span class="status-badge">
+        <span class="dot"></span> Portería 24/7 Activa
+      </span>
+      <div class="user-chip">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Torre 2 - Apto 501</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <div class="page-container">
+    
+    <div class="back-navigation">
+      <a routerLink="/catg-news" class="back-btn">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Volver a la cartelera
+      </a>
+    </div>
+
+    <div class="form-card">
+      <header class="form-header">
+        <span class="tag-admin">MÓDULO ADMINISTRATIVO</span>
+        <h1>Publicar nuevo aviso o comunicado</h1>
+        <p>Emite circulares oficiales, avisos de mantenimiento o citaciones para los residentes del conjunto.</p>
+      </header>
+
+      <form (ngSubmit)="guardarComunicado()">
+        <ion-grid class="ion-no-padding">
+          <ion-row>
+            
+            <ion-col size="12" size-md="8">
+              <div class="form-group">
+                <label>Título del aviso *</label>
+                <input 
+                  type="text" 
+                  [(ngModel)]="comunicado.titulo" 
+                  name="titulo" 
+                  placeholder="Ej. Suspensión temporal de servicio de agua potable" 
+                  required 
+                />
+              </div>
+            </ion-col>
+
+            <ion-col size="12" size-md="4">
+              <div class="form-group">
+                <label>Categoría *</label>
+                <select [(ngModel)]="comunicado.categoria" name="categoria" required>
+                  <option value="Mantenimiento">Mantenimiento</option>
+                  <option value="Administración">Administración</option>
+                  <option value="Convivencia">Convivencia</option>
+                  <option value="Seguridad">Seguridad</option>
+                </select>
+              </div>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <div class="form-group">
+                <label>Prioridad *</label>
+                <select [(ngModel)]="comunicado.prioridad" name="prioridad" required>
+                  <option value="Normal">Normal</option>
+                  <option value="Alta">Alta / Urgente</option>
+                </select>
+              </div>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <div class="form-group">
+                <label>Emisor / Autor</label>
+                <input 
+                  type="text" 
+                  [(ngModel)]="comunicado.autor" 
+                  name="autor" 
+                  placeholder="Ej. Administración General" 
+                />
+              </div>
+            </ion-col>
+
+            <ion-col size="12">
+              <div class="form-group">
+                <label>Resumen corto *</label>
+                <textarea 
+                  [(ngModel)]="comunicado.resumen" 
+                  name="resumen" 
+                  rows="2" 
+                  placeholder="Escribe una breve descripción que aparecerá en la tarjeta de la cartelera..." 
+                  required>
+                </textarea>
+              </div>
+            </ion-col>
+
+            <ion-col size="12">
+              <div class="form-group">
+                <label>Contenido detallado (HTML o Texto) *</label>
+                <textarea 
+                  [(ngModel)]="comunicado.contenidoHtml" 
+                  name="contenidoHtml" 
+                  rows="6" 
+                  placeholder="Redacta el texto completo del comunicado, incluyendo horarios, torres afectadas y recomendaciones..." 
+                  required>
+                </textarea>
+              </div>
+            </ion-col>
+
+            <ion-col size="12">
+              <div class="form-group">
+                <label>Anexos o documentos (PDF, Imágenes)</label>
+                <div class="file-dropzone">
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                  <p>Haz clic o arrastra archivos PDF o imágenes para adjuntar</p>
+                  <input type="file" (change)="onFileSelected($event)" multiple />
+                </div>
+                
+                <div class="file-list" *ngIf="archivosSeleccionados.length > 0">
+                  <span *ngFor="let file of archivosSeleccionados">📎 {{ file }}</span>
+                </div>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+        <div class="actions-bar">
+          <button type="submit" class="submit-btn">
+            Publicar comunicado &rarr;
+          </button>
+        </div>
+      </form>
+
+      <div class="success-alert" *ngIf="publicadoExito">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <div>
+          <strong>¡Comunicado publicado con éxito!</strong>
+          <p>Redirigiendo a la cartelera digital de avisos...</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

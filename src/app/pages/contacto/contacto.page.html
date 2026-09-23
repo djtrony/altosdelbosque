@@ -1,0 +1,218 @@
+<ion-header class="ion-no-border navbar-custom">
+  <ion-toolbar class="toolbar-content">
+    <div class="brand-container" slot="start">
+      <div class="logo-box">
+        <ion-icon name="business-outline"></ion-icon>
+      </div>
+      <div class="brand-text">
+        <h2>Altos del Bosque</h2>
+        <p>CONJUNTO RESIDENCIAL</p>
+      </div>
+    </div>
+
+    <!-- Navegación escritorio -->
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Inicio</a>
+      <a routerLink="/catg-news" routerLinkActive="active">Avisos</a>
+      <a routerLink="/guardados" routerLinkActive="active">Guardados</a>
+      <a routerLink="/add-news" routerLinkActive="active">Publicar</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </div>
+
+    <!-- Badges / Usuario -->
+    <div slot="end" class="header-badges">
+      <span class="status-badge">
+        <span class="dot"></span> Portería 24/7 Activa
+      </span>
+      <div class="user-chip">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span>Torre 2 - Apto 501</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <div class="page-container">
+    
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header class="page-header">
+      <span class="category-tag">GESTIÓN ADMINISTRATIVA Y P.H.</span>
+      <h1>Canales de atención y contacto</h1>
+      <p>Atención institucional formal para residentes, propietarios y arrendatarios de la copropiedad Altos del Bosque. Consulta información comunitaria, comunícate con portería o radica tus peticiones con trazabilidad legal.</p>
+    </header>
+
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        
+        <!-- COLUMNA IZQUIERDA: DATOS Y MAPA -->
+        <ion-col size="12" size-lg="5" class="col-left">
+          
+          <div class="info-card">
+            <h3>Escríbenos</h3>
+            <p class="subtitle">El consejo de administración y la administración general atienden inquietudes con trazabilidad formal y respuesta garantizada de acuerdo con el reglamento de propiedad horizontal y la Ley 675.</p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="icon-circle">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+                <div>
+                  <small>UBICACIÓN DEL CONJUNTO</small>
+                  <strong>Calle 145 # 12-48</strong>
+                  <span>Rincón del Chico, Bogotá D.C., Colombia</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon-circle">
+                  <ion-icon name="call-outline"></ion-icon>
+                </div>
+                <div>
+                  <small>LÍNEA DE PORTERÍA & PBX <span class="badge-tag">24 HORAS</span></small>
+                  <strong>(+57) 601 745 8920</strong>
+                  <span>Celular: 310 987 6543 - Portería general activa</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon-circle">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+                <div>
+                  <small>CORREO INSTITUCIONAL</small>
+                  <strong>administracion&#64;altosdelbosque.com.co</strong>
+                  <span>Recepción formal con número de radicado</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon-circle">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+                <div>
+                  <small>HORARIO DE ATENCIÓN PRESENCIAL</small>
+                  <strong>Lunes a Viernes: 8:00 a.m. a 5:00 p.m.</strong>
+                  <span>Sábados: 9:00 a.m. a 1:00 p.m. (Administración Oficina 102)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAPA EMBED -->
+          <div class="map-card">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.495028560037!2d-74.0325!3d4.7215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a1f2b3c4d5e%3A0x123456789abcdef!2sCalle%20145%20%23%2012-48%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000" 
+              width="100%" 
+              height="200" 
+              style="border:0; border-radius: 12px;" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <!-- VIGILANCIA -->
+          <div class="surveillance-card">
+            <div class="status-dot"></div>
+            <div>
+              <strong>Vigilancia Privada y Monitoreo CCTV</strong>
+              <p>Operativo 24/7 con apoyo del cuadrante de Policía A14</p>
+            </div>
+            <span class="active-pill">Activa</span>
+          </div>
+
+        </ion-col>
+
+        <!-- COLUMNA DERECHA: FORMULARIO PQRS -->
+        <ion-col size="12" size-lg="7" class="col-right">
+          
+          <div class="form-card">
+            <div class="form-header">
+              <div>
+                <small class="tag-official">FORMULARIO OFICIAL</small>
+                <h2>Radicar solicitud o PQRS</h2>
+              </div>
+              
+            </div>
+
+            <form (ngSubmit)="enviarFormulario()">
+              
+              <div class="form-group">
+                <label>Nombre completo *</label>
+                <div class="input-wrapper">
+                  <input type="text" [(ngModel)]="pqrs.nombre" name="nombre" placeholder="Ej. Carlos Alberto Mendoza" required />
+                  <ion-icon name="person-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Correo electrónico institucional o personal *</label>
+                <div class="input-wrapper">
+                  <input type="email" [(ngModel)]="pqrs.email" name="email" placeholder="carlos.mendoza&#64;gmail.com" required />
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+                <small class="field-hint">Ingresa un correo válido para recibir copia del radicado</small>
+              </div>
+
+              <div class="form-group">
+                <label>Torre y apartamento / Unidad privada *</label>
+                <div class="input-wrapper disabled">
+                  <input type="text" [(ngModel)]="pqrs.unidad" name="unidad" readonly />
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Tipo de solicitud *</label>
+                <select [(ngModel)]="pqrs.tipoSolicitud" name="tipoSolicitud" required>
+                  <option value="Petición">Petición</option>
+                  <option value="Queja">Queja</option>
+                  <option value="Reclamo">Reclamo</option>
+                  <option value="Sugerencia">Sugerencia</option>
+                  <option value="Mantenimiento">Mantenimiento locativo</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Mensaje detallado de la consulta *</label>
+                <textarea 
+                  [(ngModel)]="pqrs.mensaje" 
+                  name="mensaje" 
+                  rows="5" 
+                  placeholder="Describe de forma clara y detallada tu inquietud..."
+                  required>
+                </textarea>
+                <div class="char-count">Máx. 1000 caracteres</div>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="habeasData" [(ngModel)]="pqrs.aceptaTerminos" name="aceptaTerminos" required />
+                <label for="habeasData">
+                  Autorizo el tratamiento de mis datos de contacto conforme a la Ley 1581 de 2012 y la Política de Privacidad de la P.H. Altos del Bosque para fines exclusivos de radicación de PQRS.
+                </label>
+              </div>
+
+              <button type="submit" class="submit-btn" [disabled]="!pqrs.aceptaTerminos">
+                Enviar solicitud &rarr;
+              </button>
+
+            </form>
+
+            <!-- MENSAJE DE ÉXITO -->
+            <div class="success-alert" *ngIf="enviado">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              <div>
+                <strong>Tu solicitud fue enviada</strong>
+                <p>La administración le dará respuesta en un máximo de 3 días hábiles. Se ha remitido una copia con el radicado a tu correo registrado.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

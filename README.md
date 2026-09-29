@@ -2,7 +2,7 @@
 
 Portal web de comunicaciones para el **Conjunto Residencial Altos del Bosque**. Centraliza en un solo lugar los avisos, circulares y novedades de la administración, para que los copropietarios y residentes estén informados al instante desde cualquier dispositivo.
 
-Proyecto académico del módulo **Desarrollo de Front-end**.
+
 
 ---
 

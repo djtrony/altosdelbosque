@@ -80,7 +80,7 @@
               <p>{{ catgNews.resumen }}</p>
 
               <div class="card-footer">
-                <a [routerLink]="['/avisos', catgNews.id]" class="read-more">Leer comunicado &rarr;</a>
+                <a [routerLink]="['/detail-news', catgNews.id]" class="read-more">Leer comunicado &rarr;</a>
                 <button class="bookmark-btn" (click)="toggleGuardar(catgNews)">
                   <ion-icon [name]="catgNews.guardado ? 'bookmark' : 'bookmark-outline'" [class.active]="catgNews.guardado"></ion-icon>
                 </button>

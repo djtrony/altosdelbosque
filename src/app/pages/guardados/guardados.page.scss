@@ -1,0 +1,556 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: #f7f8fa;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 78px;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  text-decoration: none;
+  color: #172033;
+  min-width: 210px;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+  margin-top: 2px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #7b8494;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  color: #5b6472;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #1f6f5c;
+}
+
+.nav-links a.active {
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background: #1f6f5c;
+  border-radius: 4px;
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-badge,
+.apto-badge {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge {
+  background: #eef8f3;
+  color: #287357;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #3aaa75;
+}
+
+.apto-badge {
+  background: #f1f3f6;
+  color: #626b78;
+}
+
+/* =========================
+   CONTENIDO
+   ========================= */
+
+.saved-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 70px 32px 90px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+
+.section-label {
+  color: #1f6f5c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.page-header h1 {
+  margin: 10px 0 12px;
+  color: #172033;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+
+.page-header h1 span {
+  color: #1f6f5c;
+}
+
+.page-header p {
+  max-width: 650px;
+  margin: 0;
+  color: #697384;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.saved-counter {
+  min-width: 190px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #ffffff;
+  border: 1px solid #e6e9ed;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(23, 32, 51, 0.05);
+}
+
+.saved-counter ion-icon {
+  font-size: 28px;
+  color: #1f6f5c;
+}
+
+.saved-counter strong {
+  display: block;
+  color: #172033;
+  font-size: 22px;
+}
+
+.saved-counter span {
+  display: block;
+  margin-top: 2px;
+  color: #7b8494;
+  font-size: 12px;
+}
+
+/* =========================
+   TARJETAS
+   ========================= */
+
+.saved-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.saved-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e5e8ec;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(23, 32, 51, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.saved-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(23, 32, 51, 0.08);
+}
+
+.saved-image {
+  position: relative;
+  min-height: 230px;
+}
+
+.saved-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  display: block;
+  object-fit: cover;
+}
+
+.category-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  padding: 7px 11px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.94);
+  color: #1f6f5c;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.saved-content {
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.saved-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 12px;
+
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.saved-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.saved-meta ion-icon {
+  font-size: 15px;
+}
+
+.priority {
+  padding: 5px 9px;
+  border-radius: 12px;
+  background: #f0f2f5;
+  color: #697384;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.priority.high {
+  background: #fff1ef;
+  color: #c34b3e;
+}
+
+.saved-content h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.saved-content p {
+  margin: 0;
+  max-width: 760px;
+  color: #697384;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.read-button,
+.remove-button,
+.browse-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.read-button {
+  padding: 11px 16px;
+  background: #1f6f5c;
+  color: #ffffff;
+}
+
+.read-button:hover {
+  background: #185947;
+}
+
+.read-button ion-icon {
+  font-size: 16px;
+}
+
+.remove-button {
+  padding: 10px 13px;
+  border: 1px solid #e1e4e8;
+  background: #ffffff;
+  color: #697384;
+}
+
+.remove-button:hover {
+  border-color: #d7a3a0;
+  color: #b34d45;
+  background: #fff8f7;
+}
+
+.remove-button ion-icon {
+  font-size: 16px;
+}
+
+/* =========================
+   ESTADO VACÍO
+   ========================= */
+
+.empty-state {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 55px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e5e8ec;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+.empty-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #eef8f3;
+  color: #1f6f5c;
+}
+
+.empty-icon ion-icon {
+  font-size: 32px;
+}
+
+.empty-state h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 23px;
+}
+
+.empty-state p {
+  max-width: 480px;
+  margin: 0 auto 25px;
+  color: #697384;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.browse-button {
+  padding: 12px 18px;
+  background: #1f6f5c;
+  color: #ffffff;
+}
+
+.browse-button:hover {
+  background: #185947;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  background: #172033;
+  color: #ffffff;
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer strong {
+  font-size: 15px;
+}
+
+.footer p {
+  margin: 5px 0 0;
+  color: #aeb6c2;
+  font-size: 12px;
+}
+
+.footer-copy {
+  color: #aeb6c2;
+  font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1050px) {
+  .navbar-container {
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-status {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 760px) {
+
+  .navbar-container {
+    padding: 16px 20px;
+  }
+
+  .brand {
+    min-width: auto;
+  }
+
+  .nav-status {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 16px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .saved-page {
+    padding: 45px 20px 65px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .saved-counter {
+    width: 100%;
+  }
+
+  .saved-card {
+    grid-template-columns: 1fr;
+  }
+
+  .saved-image,
+  .saved-image img {
+    min-height: 210px;
+    height: 210px;
+  }
+
+  .saved-content {
+    padding: 23px 20px;
+  }
+
+  .saved-content h2 {
+    font-size: 20px;
+  }
+
+  .card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .read-button,
+  .remove-button {
+    width: 100%;
+  }
+
+  .footer-container {
+    padding: 25px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

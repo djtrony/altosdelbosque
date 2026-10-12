@@ -1,0 +1,164 @@
+<ion-content [fullscreen]="true">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-container">
+
+      <a routerLink="/" class="brand">
+        <div class="brand-title">Altos del Bosque</div>
+        <div class="brand-subtitle">CONJUNTO RESIDENCIAL</div>
+      </a>
+
+      <nav class="nav-links">
+        <a routerLink="/">Inicio</a>
+        <a routerLink="/catg-news">Avisos</a>
+        <a routerLink="/guardados" class="active">Guardados</a>
+        <a routerLink="/add-news">Publicar</a>
+        <a routerLink="/contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          Portería 24/7 Activa
+        </span>
+
+        <span class="apto-badge">
+          Torre 2 - Apto 501
+        </span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="saved-page">
+
+    <section class="page-header">
+      <div>
+        <span class="section-label">MIS AVISOS</span>
+
+        <h1>
+          Avisos <span>Guardados</span>
+        </h1>
+
+        <p>
+          Consulta los comunicados que has guardado para revisarlos
+          posteriormente.
+        </p>
+      </div>
+
+      <div class="saved-counter">
+        <ion-icon name="bookmark"></ion-icon>
+        <div>
+          <strong>{{ avisosGuardados.length }}</strong>
+          <span>
+            {{ avisosGuardados.length === 1 ? 'aviso guardado' : 'avisos guardados' }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVISOS GUARDADOS -->
+    <section class="saved-list" *ngIf="avisosGuardados.length > 0">
+
+      <article
+        class="saved-card"
+        *ngFor="let aviso of avisosGuardados">
+
+        <div class="saved-image">
+          <img
+            [src]="aviso.imagen"
+            [alt]="aviso.titulo"
+          />
+
+          <span class="category-badge">
+            {{ aviso.categoria }}
+          </span>
+        </div>
+
+        <div class="saved-content">
+
+          <div class="saved-meta">
+            <span>
+              <ion-icon name="calendar-outline"></ion-icon>
+              {{ aviso.fecha }}
+            </span>
+
+            <span
+              class="priority"
+              [class.high]="aviso.prioridad === 'Alta'">
+              {{ aviso.prioridad }}
+            </span>
+          </div>
+
+          <h2>{{ aviso.titulo }}</h2>
+
+          <p>{{ aviso.resumen }}</p>
+
+          <div class="card-actions">
+
+            <a
+              class="read-button"
+              [routerLink]="['/detail-news', aviso.id]">
+              Leer comunicado
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+
+            <button
+              type="button"
+              class="remove-button"
+              (click)="quitarGuardado(aviso.id)">
+              <ion-icon name="bookmark"></ion-icon>
+              Quitar de guardados
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+    <!-- ESTADO SIN AVISOS -->
+    <section
+      class="empty-state"
+      *ngIf="avisosGuardados.length === 0">
+
+      <div class="empty-icon">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </div>
+
+      <h2>No tienes avisos guardados</h2>
+
+      <p>
+        Cuando encuentres un comunicado importante, puedes guardarlo
+        para consultarlo fácilmente después.
+      </p>
+
+      <a routerLink="/catg-news" class="browse-button">
+        Explorar avisos
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div>
+        <strong>Altos del Bosque</strong>
+        <p>Información y comunicación para nuestra comunidad.</p>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Altos del Bosque
+      </div>
+
+    </div>
+  </footer>
+
+</ion-content>

@@ -15,7 +15,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contacto/contacto.page').then( m => m.ContactoPage)
   },
   {
-    path: 'detail-news',
+    path: 'detail-news/:id',
     loadComponent: () => import('./pages/detail-news/detail-news.page').then( m => m.DetailNewsPage)
   },
   {
@@ -29,5 +29,9 @@ export const routes: Routes = [
   {
     path: 'catg-news',
     loadComponent: () => import('./pages/catg-news/catg-news.page').then( m => m.CatgNewsPage)
+  },
+  {
+    path: 'guardados',
+    loadComponent: () => import('./pages/guardados/guardados.page').then( m => m.GuardadosPage)
   },
 ];

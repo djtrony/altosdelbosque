@@ -43,12 +43,12 @@
       <p>Mantente informado al instante sobre comunicados oficiales, mantenimientos, eventos comunitarios y novedades de nuestra copropiedad.</p>
       
       <div class="hero-buttons">
-        <ion-button fill="solid" color="success" class="btn-primary">
+        <ion-button fill="solid" color="success" class="btn-primary" routerLink="/catg-news">
           <ion-icon name="notifications-outline" slot="start"></ion-icon>
           Ver avisos
         </ion-button>
-        <ion-button fill="outline" color="light" class="btn-secondary">
-          <ion-icon name="headset-outline" slot="start"></ion-icon>
+        <ion-button fill="outline" color="light" class="btn-secondary" routerLink="/contacto">
+          <ion-icon name="headset-outline" slot="start" ></ion-icon>
           Contactar administración
         </ion-button>
       </div>
@@ -126,7 +126,7 @@
         <h2>Avisos destacados</h2>
         <p>Las novedades más importantes para tener en cuenta esta semana en el conjunto residencial.</p>
       </div>
-      <a href="#" class="link-more">Ver cartelera completa &rarr;</a>
+      <a routerLink="/catg-news" class="link-more">Ver cartelera completa &rarr;</a>
     </div>
 
     <ion-grid class="ion-no-padding">
@@ -143,7 +143,7 @@
               <h3>Lavado preventivo de tanques de reserva</h3>
               <p>Se realizará lavado preventivo de tanques de reserva de agua potable en las Torres 1 y 2. Recomendamos almacenar agua.</p>
               <div class="card-footer">
-                <a href="#">Ver más &rarr;</a>
+                <a routerLink="/detail-news/1">Ver más &rarr;</a>
                 <ion-icon name="bookmark-outline" class="bookmark-btn"></ion-icon>
               </div>
             </div>
@@ -162,7 +162,7 @@
               <h3>Convocatoria a reunión de copropietarios</h3>
               <p>Convocatoria a reunión de copropietarios y asamblea ordinaria de fin de año para presentación del balance contable.</p>
               <div class="card-footer">
-                <a href="#">Ver más &rarr;</a>
+                <a routerLink="/detail-news/2">Ver más &rarr;</a>
                 <ion-icon name="bookmark-outline" class="bookmark-btn"></ion-icon>
               </div>
             </div>
@@ -309,7 +309,7 @@
         <h2>¿Tienes una novedad para reportar a la administración?</h2>
         <p>Utiliza el canal oficial de convivencia y mantenimiento para registrar reparaciones locativas, solicitar paz y salvos o agendar citas con el consejo.</p>
       </div>
-      <ion-button fill="solid" color="light" class="btn-cta">
+       <ion-button fill="solid" color="light" class="btn-cta" routerLink="/contacto">
         <ion-icon name="send-outline" slot="start"></ion-icon>
         Escribir a la administración
       </ion-button>
